@@ -4,7 +4,7 @@
   "description": "simple ws server",
   "main": "server.js",
   "dependencies": {
-    "ws":"^6.1.4"
+    "ws": "^6.1.4"
   },
   "devDependencies": {},
   "scripts": {

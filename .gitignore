@@ -1,0 +1,5 @@
+server/app/node_modules
+client/app/node_modules
+
+client/app/package-lock.json
+server/app/package-lock.json
