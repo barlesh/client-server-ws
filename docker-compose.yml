@@ -16,7 +16,7 @@ services:
     working_dir: /home/app
     volumes:
       - ./client/app:/home/app
-    command: sh -c 'pwd && ls && npm i && node client.js'
+    command: sh -c 'npm i && node client.js'
     depends_on:
       - "server"
   server:
@@ -33,7 +33,7 @@ services:
       - "8080:8080"
     networks:
       - lognet
-    command: sh -c 'pwd && ls && npm i && node server.js'
+    command: sh -c 'npm i && node server.js'
 
 networks:
   lognet:
