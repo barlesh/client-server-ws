@@ -1,0 +1,30 @@
+version: "2"
+services:
+    client:
+      build:
+        "client"
+            # context: client/
+            # dockerfile: Dockerfile-client
+      container_name: client
+      ports:
+      - "2000:3000"
+      # restart: always
+      working_dir: /home/app
+      volumes:
+        - ./client/app:/home/app
+      command: sh -c 'pwd && ls && npm i && node client.js'
+      depends_on:
+          - "server"
+    server:
+      build:
+        "server"
+        # context: server/
+        # dockerfile: Dockerfile-server
+      container_name: server
+      # restart: always
+      working_dir: /home/app
+      volumes:
+        - ./server/app:/home/app
+      ports:
+        - "8080:8080"
+      command: sh -c 'pwd && ls && npm i && node server.js'
