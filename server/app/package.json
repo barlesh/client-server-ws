@@ -1,5 +1,9 @@
 {
   "name": "server",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/username/repository.git"
+  },
   "version": "1.0.0",
   "description": "simple ws server",
   "main": "server.js",

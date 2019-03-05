@@ -1,17 +1,12 @@
 version: "2"
 services:
   client:
-    build:
-      "client"
-      # context: client/
-      # dockerfile: Dockerfile-client
+    build: "client"
     container_name: client
-    environment: 
+    environment:
       - SERVER_URL=server:8080
-    # ports:
-    #   - "2000:3000"
     networks:
-      - lognet
+      - wsnet
     # restart: always
     working_dir: /home/app
     volumes:
@@ -20,10 +15,7 @@ services:
     depends_on:
       - "server"
   server:
-    build:
-      "server"
-      # context: server/
-      # dockerfile: Dockerfile-server
+    build: "server"
     container_name: server
     # restart: always
     working_dir: /home/app
@@ -32,9 +24,9 @@ services:
     ports:
       - "8080:8080"
     networks:
-      - lognet
+      - wsnet
     command: sh -c 'npm i && node server.js'
 
 networks:
-  lognet:
+  wsnet:
     driver: bridge

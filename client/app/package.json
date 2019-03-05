@@ -1,6 +1,10 @@
 {
   "name": "client-ws",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/username/repository.git"
+  },
   "description": "simple websocket client",
   "main": "client.js",
   "dependencies": {

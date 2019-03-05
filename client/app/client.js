@@ -4,7 +4,7 @@ const ws_server = process.env.SERVER_URL
 const ws_protocol_prefix = "ws://"
 let ws;
 
-console.log("client calling for server %s", ws_server);
+console.log("Client calling for server %s", ws_server);
 
 try {
   ws = new WebSocket(ws_protocol_prefix + ws_server);
@@ -15,11 +15,14 @@ try {
 
 try {
   ws.on("open", function open() {
-    ws.send("Maccabi");
+    console.log("Client: connected to server!")
+    const msg = "Yalla!"
+    console.log("Client: sending: %s", msg)
+    ws.send(msg);
   });
 
   ws.on("message", function incoming(data) {
-    console.log("client: %s", data);
+    console.log("Client: received: %s", data);
   });
 } catch (e) {
   console.error("error:", e);
